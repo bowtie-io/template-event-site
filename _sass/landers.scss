@@ -1,0 +1,245 @@
+body#landing{
+  #content {
+    border-bottom: none;
+    height:inherit;
+    .modal-dialog, .email-form {
+      h1, h2, h3, h4, h5, p, label {color:#000 !important;}
+      h2 {margin: .75em 0 .5em; font-size: 1.5em;}
+      p {margin:0 0 .5em; font-size: 1em;}
+    }
+
+    section.lander {position:inherit !important;}
+    .form-response p {font-style:italic; font-size: 1.2em; font-weight:normal;}
+    #hero {
+      .action.form {
+        h2 {
+          color:#333;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 1.25em;
+          margin: .75em 0 .25em;
+        }
+        .email-form {
+          background: white;
+          padding: 10px 20px;
+          box-shadow: 1px 1px 6px rgba(0,0,0,.1);
+          .subtext {text-align:left; font-size:.8em;}
+        }
+      } // action.form
+      .action.cta {
+        .icons {text-align: center; margin: 20px 0;}
+        .icons a .fa { font-size: 30px; margin: 0px 15px; color: white;}
+        .trans-bg {position: relative;}
+      }// action.cta
+
+      .action {
+        h1 {margin: 30px 0 10px;font-size: 3em;}
+        h2 {margin: .5em 0;}
+        }
+      .element {
+        h1.headline, .headline {
+          font-size: 4em;
+          font-weight: bold;
+          margin: 30px 0 10px 0;
+          text-transform:uppercase;
+        } //element
+        h2.subheadline, .subheadline {
+          font-size: 3em;
+          font-weight: normal;
+          margin: 30px 0 10px 0;
+          text-transform: none;
+        }
+        h3 {text-transform: uppercase;}
+        h3.copy, .copy {
+          font-size: 1.75em;
+          margin: 10px 0 20px;
+        }
+        p.subtext {
+          margin-top: 0;
+          font-size: 1em;
+        }
+        p, li {}
+        }
+      .element.card {
+        .well {max-width:600px;border-radius:2%;margin:0 auto;padding: 10% 10% 15%;}
+        img.logo{max-width:150px;border-radius:50%;}
+        h1, h2, h3, h4, h5, i, p, label {color:#fff;}
+        h1.headline {text-transform:none;font-weight:normal;font-size:3em;margin:30px 0 0px 0;}
+        h2.copy {margin:0;}
+        h3.copy {font-size:1em;text-transform:none;margin:10px 0;}
+        .social {
+          margin:20px 0 10px 0;
+          span a i {margin-top:10px;}
+        }
+      }
+      .element.testimonial {
+        h1.headline {
+          font-size: 1.75em;
+          font-weight: 300;
+          margin: 30px 0 10px 0;
+          text-transform: none;
+        }
+        h2.testimonial {
+          margin:0;
+          font-size: 1.5em;
+          line-height:1.1;
+          font-weight: bold;
+        }
+        blockquote {
+          font-size: 1.8em;
+          font-style: italic;
+          width: 80%;
+          margin: 0.25em auto;
+          padding: 0em 20px;
+          line-height: 1.25;
+          position: relative;
+          border-left: none;
+          a {
+            color: #fff !important;
+          }
+          h3.cite {
+            font-size: .5em;
+            margin: 1em auto .25em;
+            text-transform: none;
+            font-size: .8em;
+            font-weight: 300;
+            opacity: .9;
+          }
+          h3.cite:before {
+            content: "\2014 \2009";
+          }
+          p.subtext {
+            margin-top: 0;
+            font-size: .6em;
+            opacity: .8;
+          }
+        }
+        blockquote:before {
+          display: block;
+          content: "\201C";
+          font-size: 4.5em;
+          position: absolute;
+          left: -45px;
+          top: -20px;
+          color: #eee;
+          font-family: inherit;
+        }
+      } //element.testimonial
+      .element.image {
+        img {
+          max-width:65%;
+        }
+        hr {
+          border-top: 1px solid white;
+          border-bottom: 1px solid white;
+          height: 2px;
+          margin: 15px auto;
+          max-width:50%;
+        }
+        .copy, h3.copy {
+          text-transform: none;
+        }
+        .headline {
+          font-size: 3em;
+          margin-top: 20px;
+          text-transform:uppercase;
+        }
+      } //element.img
+      .element.countdown {
+        .copy, h3.copy {
+          text-transform: none;
+        }
+        .headline {
+          font-size: 3em;
+          margin-top: 20px;
+          margin-bottom: 15px;
+          text-transform:uppercase;
+        }
+        p.copy {
+          font-size: 1.5em;
+          margin-top: 0;
+        }
+      } //element.countdown
+      .element.pitch {
+        h2.copy {
+          font-size: 2em;
+          font-weight: normal;
+        }
+        h3.copy {
+          font-size: 1.5em;
+          margin-top: 1.5em;
+          text-transform:none;
+        }
+        .points, ul.points {
+          p, li {font-weight:bold;}
+          margin:10px auto 30px;
+          li {text-align:center;font-size:1.2em;color:#fff;}
+        }
+      } //element.apps
+    } //hero
+  } //content
+  #content.lander-simple-singlecol #hero {
+    .element.image {
+      img {max-width:35%;}
+     }
+    }
+  #footer.simple-footer.subfooter {
+    background: transparent;
+    position: relative;
+    text-align:center;
+    margin-top:5%;
+    padding:5px;
+    height: 30px;
+    width: 100%;
+    a, a:visited, a:hover, a:active {
+      color: inherit;
+    }
+  }
+  #hero.jumbotron {
+    padding:90px 0;
+  }
+
+  @media (max-width: 767px){
+    #hero.jumbotron {
+      padding-top:50px !important;
+    }
+  }
+  // lander left alt
+  #content.lander-simple-actionleft-alt {
+    .action.form {
+      background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
+      height: 100vh;
+      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 0px;
+      padding: 20% 5%;
+      width: 40vw;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      .email-form {background:none !important; box-shadow: none !important;}
+      h1, h2, h3, h4, label, p, a {color:#fff !important;} //need to mod to use variables
+    }
+    #footer.simple-footer.subfooter { //need to fix
+      position: fixed !important;
+      bottom: 10px !important;
+    }
+    @media (max-width: 767px) {
+      .action.form {
+        width: 80vw;
+      }
+      .element {
+        margin-top: 320px;
+        margin-left: -22%;
+      }
+    }
+  }
+
+} //end landing
+
+#examples {
+  .example { margin-bottom: 10px;
+    a {display: block; padding: 5px 5px 5px; min-height:230px; transition: .2s;}
+    a:hover {background: #ddd; text-decoration: none;}
+    h3 {font-size: 1.2em; margin-top: 15px;}
+  }
+}

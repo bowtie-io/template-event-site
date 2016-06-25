@@ -1,0 +1,12 @@
+<h1 class="headline">{{page.element.headline}}</h1>
+<blockquote>
+  <h2 class="testimonial">{{page.element.testimonial.testimonial}}</h2>
+  <h3 class="cite">{{page.element.testimonial.source}}</h3>
+  <p class="subtext">{{page.element.subtext}}</p>
+</blockquote>
+
+{% if page.element.font_color %}
+<style >
+.element.testimonial h1,.element.testimonial h2,.element.testimonial h3, .element.testimonial h4, .element.testimonialh5, .element.testimonial i, .element.testimonial p, .element.testimonial blockquote, .element.testimonial blockquote:before {color:{{page.element.font_color}} !important;}
+</style>
+{% endif %}

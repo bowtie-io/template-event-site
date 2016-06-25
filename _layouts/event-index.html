@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+{% if page.masthead.img_path %}
+<style type="text/css">
+   .masthead {
+     background:url("{{ page.masthead.img_path }}") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    right: 0;
+    top: 0;
+    }
+</style>
+{% endif %}
+
+{% if page.masthead.pat_path %}
+<style type="text/css">
+   .masthead {
+    background:url("{{ page.masthead.pat_path }}") repeat;
+    position: relative;
+    }
+</style>
+{% endif %}
+
+
+  <body>
+    <div class="event">
+      {% include flash.html %}
+      {% include header.html %}
+      <div id="content">
+        {{ content }}
+      </div>
+      {% include footer.html %}
+    </div>
+    {% include tracking.html %}
+
+    <!-- segment tracking -->
+    <script>
+      function load() {
+        analytics.page(‘events’);
+      }
+      window.onload = load;
+    </script>
+  </body>
+
+</html>

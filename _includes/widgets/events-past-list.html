@@ -1,0 +1,27 @@
+<div id="events" class="events">
+  <ul class="post-list event-list past">
+    <span class="row">
+    {% assign events = site.events | where: "past" , true %}
+    {% for event in events %}
+      {% capture thecycle %}{% cycle 'eventsPast' :  '1', '2' %}{% endcapture %}
+      {% if thecycle == '1' and forloop.first == false %}</span>
+      <span class="row">{% endif %}
+      <li class="col-md-6 clearfix">
+        <div class="date past">
+          <a href="{{ event.url | prepend: site.baseurl }}">
+          <span class="binds"></span>
+          <span class="month">
+              {{ event.date_on | date: "%b" }}
+          </span>
+          <span class="day">{{ event.date_on | date: "%-d" }}</span>
+          </a>
+        </div>
+        <h2>
+          <a class="post-link past" href="{{ event.url | prepend: site.baseurl }}">{{ event.title }}</a>
+        </h2>
+        <p>{{ event.excerpt }}</p>
+      </li>
+    {% endfor %}
+    </span>
+  </ul>
+</div>

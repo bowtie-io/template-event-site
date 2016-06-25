@@ -1,0 +1,30 @@
+<ul class="nav navbar-nav">
+  {% assign nodes = site.pages | sort: 'navorder' %}
+    {% for node in nodes %}
+      {% unless node.exclude_from_nav %}
+        {% if node.title %}
+            <li class="{{ node.title }}">
+            {% if page.url == node.url %}
+              <a class="page-link active" href="{{node.url}}">{{ node.title }}</a>
+            {% else %}
+              <a class="page-link" href="{{node.url}}">{{ node.title }}</a>
+            {% endif %}
+            </li>
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+      <!-- 'signed_in' or 'signed_out' classes hide/display elements based on user state -->
+
+      <!-- <li class="signed-out">
+        <a class="page-link" href="/users/sign_in">Sign In</a>
+      </li>
+      <li class="signed-out">
+        <a class="page-link" href="/users/sign_up">Register</a>
+      </li>
+      <li class="signed-in">
+        <a class="page-link" href="/users/sign_out">Sign Out</a>
+      </li>
+      <li class="signed-in">
+        <a class="page-link" href="/users/edit">Account</a>
+      </li> -->
+</ul>

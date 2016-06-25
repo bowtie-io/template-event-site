@@ -1,0 +1,77 @@
+<!-- include profile.js to add information to bowtie user profiles -->
+
+<form id="landing-form" class="email-form text-left">
+  <h2>{{page.action.heading}}</h2>
+  <p>{{page.action.subhead}}</p>
+  {% if page.action.form.name %}
+  <div class='form-group'>
+    <div class="input">
+      <label class="text">
+        Name
+      </label>
+      <input aria-required="true" class="string text form-control" id="profile_name" maxlength="255" name="profile[name]" placeholder="Name"  size="255" type="text" />
+    </div>
+  </div>
+  {% endif %}
+  {% if page.action.form.email %}
+  <div class='form-group'>
+    <div class="input">
+      <label class="text">
+        Email
+      </label>
+      <input aria-required="true" class="string text form-control" id="profile_email" maxlength="255" name="profile[email]" placeholder="Email Address" size="255" type="text" />
+    </div>
+  </div>
+  {% endif %}
+  {% if page.action.form.optIn %}
+  <div class='form-group'>
+    <div class="checkbox">
+      <label class="text">
+        <input id="profile_optin" type="checkbox" name="profile[optIn]" checked > Join our mailing list
+      </label>
+    </div>
+  </div>
+  {% endif %}
+  <br>
+  <div class='form-actions text-center'>
+    <input id="update_profile" class="button btn {% if page.action.form.btnType %}btn-{{page.action.form.btnType}} {% else %}btn-success{% endif %}" name="commit" type="submit" value="{{page.action.form.btnText}} ">
+  </div>
+  <div class='form-response text-center' style="display:none;">
+    {% if page.action.form.complete %}<p>{{page.action.form.complete}}</p>{% else %}<p>Your information has been saved.</p>{% endif %}
+  </div>
+  <br>
+  {% if page.action.subtext %}<p class="subtext">{{page.action.subtext}}</p>{% endif %}
+</form>
+
+<script type="text/javascript">
+$(window).bind("load", function() {
+  bowtie.user.profile(function(profile){
+      $("#profile_name").val(profile.name);
+      $("#profile_email").val(profile.email);
+      $("#profile_optin").prop('checked', (profile.optin == 'true'));
+
+  });
+
+  $(function(){
+    $("form.email-form").submit(function(event){
+      event.preventDefault();
+      var profileName = $('#profile_name').val();
+      var profileEmail = $('#profile_email').val();
+      var profileOptin = $('#profile_optin:checked').val();
+
+      var profileData = {
+        name: profileName,
+        email: profileEmail,
+        optin: profileOptin ? true : false
+      };
+
+      bowtie.user.profile(profileData, function(){
+          $('.form-group', this).hide();
+          $('.form-actions', this).hide();
+          $('.form-response', this).show();
+        }.bind(this));
+        return false;
+    });
+  });
+});
+</script>

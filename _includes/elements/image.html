@@ -1,0 +1,16 @@
+<img class="logo img" alt="{{page.element.img.alt}}" src="{{page.element.img.src_path}}"></img>
+{% if page.element.headline %}
+<h1 class="headline">{{page.element.headline}}</h1>
+{% endif %}
+{% if page.element.copy %}
+<hr>
+<h3 class="copy">{{page.element.copy}}</h3>
+<p class="subtext">{{page.element.subtext}}</p>
+{% endif %}
+
+{% if page.element.font_color %}
+<style >
+.element.image h1,.element.image h2,.element.image h3, .element.image h4, .element.image h5, .element.image i, .element.image p  {color:{{ page.element.font_color }} !important;}
+.element.image hr {border-color: {{ page.element.font_color }}!important}
+</style>
+{% endif %}

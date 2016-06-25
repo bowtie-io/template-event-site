@@ -1,0 +1,92 @@
+<h2 class="subheadline">{{page.action.subhead}}</h2>
+
+<a href="#" class="btn {% if page.action.popupform.btnType %}btn-{{page.action.popupform.btnType}}{% else %}btn-info{% endif %}" data-toggle="modal" data-target="#profile">{{page.action.popupform.btnText}}</a>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="#" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <h2>{{page.action.heading}}</h2>
+        <div id="profile" class="user-profile text-left">
+          {% if page.action.popupform.name %}
+          <div class='form-group'>
+            <div class="input">
+              <label class="text">
+                Name
+              </label>
+              <input aria-required="true" class="string text form-control" id="profile_name" maxlength="255" name="profile[name]" placeholder="Name"  size="255" type="text" />
+            </div>
+          </div>
+          {% endif %}
+          {% if page.action.popupform.email %}
+          <div class='form-group'>
+            <div class="input">
+              <label class="text">
+                Email
+              </label>
+              <input aria-required="true" class="string text form-control" id="profile_email" maxlength="255" name="profile[email]" placeholder="Email Address" size="255" type="text" />
+            </div>
+          </div>
+          {% endif %}
+          {% if page.action.popupform.optIn %}
+          <div class='form-group'>
+            <div class="checkbox">
+              <label class="text">
+                <input id="profile_optin" type="checkbox" name="profile[optIn]" checked > Join our mailing list
+              </label>
+            </div>
+          </div>
+          {% endif %}
+          <div class='form-response text-center' style="display:none;">
+            {% if page.action.popupform.complete %}<p>{{page.action.popupform.complete}}</p>{% else %}<p>Your information has been saved.</p>{% endif %}
+          </div>
+          <br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class='form-actions text-center'>
+          <input id="update_profile" class="button btn btn-success" name="commit" type="submit" value="{{page.action.popupform.btnText}}">
+        </div>
+        <br>
+        {% if page.action.subtext %}<p class="subtext">{{page.action.subtext}}</p>{% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(window).bind("load", function() {
+  bowtie.user.profile(function(profile){
+    $("#profile_name").val(profile.name);
+    $("#profile_email").val(profile.email);
+    $("#profile_optin").prop('checked', (profile.optin == 'true'));
+  });
+
+  $(function(){
+    $("#update_profile").on("click", function(){
+      var profileName = $('#profile_name').val();
+      var profileEmail = $('#profile_email').val();
+      var profileOptin = $('#profile_optin:checked').val();
+
+      var profileData = {
+        name: profileName,
+        email: profileEmail,
+        optin: profileOptin ? true : false
+      };
+
+      bowtie.user.profile(profileData, function(){
+        $('.form-group').hide();
+        $('.form-actions').hide();
+        $('.form-response').show();
+      }.bind(this));
+
+      return false;
+    });
+  });
+});
+</script>

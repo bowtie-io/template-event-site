@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="/css/components/events.css"/>
+
+
+<div id="events" class="events">
+{% assign events = site.events | where: "past" , false   %}
+<ul class="post-list event-list">
+{% for event in events %}
+  {% assign loopindex = forloop.index %}
+  {% cycle 'add row' : '<span class="row">', nil, nil %}
+  <li class="col-md-4 clearfix">
+        <div class="date">
+          <a href="{{ event.url | prepend: site.baseurl }}">
+          <span class="binds"></span>
+          <span class="month">
+            {{ event.date_on | date: "%b" }}
+          </span>
+          <span class="day">{{ event.date_on | date: "%-d" }}</span>
+          </a>
+        </div>
+      <h3><a href="{{ event.url | prepend: site.baseurl }}">{{ event.title }}</a></h3>
+      <p>{{ event.excerpt }}</p>
+    </li>
+  {% cycle 'end row' : nil, nil, '</span>' %}
+  {% if loopindex == 3 %}
+      {% break %}
+  {% endif %}
+{% endfor %}
+</ul>
+</div>

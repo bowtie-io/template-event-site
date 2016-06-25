@@ -1,0 +1,191 @@
+---
+layout: "landing"
+---
+{% include nav-bootstrap.html %}
+
+
+
+  <section id="hero" class="{{page.style.class }}" >
+    {% include section-background.html %}
+    <a name="{{page.style.id}}"></a>
+    <div class="container">
+    {% if page.logo_path %}<img src="{{page.logo_path}}" style="width:150px;margin:0px auto 20px;">{% endif %}
+    <h1>{{ page.title }}</h1>
+    <h2>{{ page.location.company }} - {{ page.date_on | date: '%B %d, %Y' }} from {{ page.start_at | date: '%l:%M%P' }} - {{ page.end_at | date: '%l:%M%P' }}</h2>
+
+    {% if page.element.countdown.date_on %}
+      {% include widgets/countdown.html date=page.element.countdown.date_on complete=page.element.countdown.complete %}
+    {% endif %}
+      {% if page.subtitle %}
+        <h3>{{ page.subtitle }}</h3>
+      {% endif %}
+      <p>
+        {{ page.excerpt }}
+      </p>
+      {% if page.cta.headline %}
+        <h3>{{ page.cta.headline }}</h3>
+      {% endif %}
+    </div>
+  </section>
+  <section id="details">
+    <div id="container" class="{{ page.layout }}">
+      <div id="cta" class="row">
+        {% if page.cta %}
+          <div class="col-sm-6 text-center">
+            <div id="when">
+              <strong>When: </strong> {{ page.date_on | date: '%B %d, %Y' }} from {{ page.start_at | date: '%l:%M%P' }} - {{ page.end_at | date: '%l:%M%P' }}
+            </div>
+            {% if page.location %}
+              <div id="where">
+                <strong>Where: </strong> {{ page.location.company }} {{ page.location.address }} {{ page.location.city }}, {{ page.location.state }} {{ page.location.zip }} <a href="#map">View map</a>
+              </div>
+            {% endif %}
+          </div>
+          <div class="col-sm-6 text-center">
+          {% if page.cta.btnLink %}
+              <a class="btn btn-sm {{ page.cta.btnType }}" href="{{page.cta.btnLink}}">{{ page.cta.btnText }}</a>
+          {% endif %}
+          {% if page.stripe.productID %}
+           {% include widgets/event-checkout-button.html %}
+          {% endif %}
+          {% if page.price %}<br><span class="price"><strong>{{page.price}}</strong></span>{% endif %}
+          {% if page.cta.subtext %}<span>{{ page.cta.subtext }}</span>{% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <div id="content" class="row-80">
+
+      {{ content }}
+      </div>
+    </div>
+  </section>
+  {% if page.speakers %}
+  <section id="speakers" class="dark">
+    {% if page.speakers.title %}<h3>{{ page.speakers.title }}</h3>{% endif %}
+    <div class="row-80 text-center">
+      <span class="row"> <div class="center-team">
+      {% for speaker in page.speakers.include %}
+        {% capture thecycle %}{% cycle '1', '2', '3' %}{% endcapture %}
+        {% if thecycle == '1' and forloop.first == false %}</div></span>
+        <span class="row"> <div class="center-team">{% endif %}
+        {% assign members = site.speakers | where: "nameID" , speaker %}
+        {% for member in members %}
+        <column class="col-sm-4 animateEntry">
+          <img class="img-circle img profilepic" src="{% if member.avatar_path %}{{member.avatar_path}}{% else %}{{member.gravatar}}{% endif %}">
+          <h4 class="name">{{member.name}}</h4>
+          {% if member.company %}<h4>{{member.company}} {% if member.jobTitle %} | {{member.jobTitle}}{% endif %}</h4>{% endif %}
+          {% if member.bio %}<p class="area">{{member.bio}}</p>{% endif %}
+          <div class="row social-media">
+            {% if member.linkedin %}<a href="//linkedin.com/{{member.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>{% endif %}
+            {% if member.github %}<a href="//github.com/{{member.github}}" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
+            {% if member.twitter %}<a href="//twitter.com/{{member.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>{% endif %}
+            {% if member.email %}<a mailto:="{{member.email}}" target="_blank" class="email"><i class="fa fa-envelope-o"></i></a>{% endif %}
+          </div>
+        </column>
+        {% endfor %}
+      {% endfor %}
+      </div></span>
+    </div>
+    <div class="row-80 text-center clearfix">
+      {% include widgets/email-modal.html %}
+
+    </div>
+  </section>
+  {% endif %}
+
+
+  {% if page.sponsors %}
+  <section id="sponsors" class="logo-grid">
+    <div class="logos row text-center">
+      {% if page.sponsors.title %}<h3>{{ page.sponsors.title }}</h3>{% endif %}
+      {% for sponsor in page.sponsors.include %}
+        {% assign links = site.sponsors | where: "title" , sponsor %}
+        {% for link in links %}
+        <a href="{{ link.url }}" target="_blank">
+          <img alt="{{ link.title }}" src="{{ link.img_path }}">
+        </a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% if page.organizers %}
+  <section id="speakers" class="alt">
+    {% if page.organizers.title %}<h3>{{ page.organizers.title }}</h3>{% endif %}
+    <div class="row-80 text-center">
+      <span class="row"> <div class="center-team">
+      {% for organizer in page.organizers.include %}
+        {% capture thecycle %}{% cycle 'end organizer row' : '1', '2', '3' %}{% endcapture %}
+        {% if thecycle == '1' and forloop.first == false %}</div></span>
+        <span class="row"> <div class="center-team">{% endif %}
+        {% assign organizers = site.organizers | where: "nameID" , organizer %}
+        {% for organizer in organizers %}
+        <column class="col-sm-4 animateEntry">
+          <img class="img-circle img profilepic" src="{% if organizer.avatar_path %}{{organizer.avatar_path}}{% else %}{{organizer.gravatar}}{% endif %}">
+          <h4 class="name">{{organizer.name}}{% if organizer.company %} | {{organizer.company}}{% endif %}</h4>
+          {% if organizer.bio %}<p class="area">{{organizer.bio}}</p>{% endif %}
+          <div class="row social-media">
+            {% if organizer.linkedin %}<a href="//linkedin.com/{{organizer.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>{% endif %}
+            {% if organizer.github %}<a href="//github.com/{{organizer.github}}" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
+            {% if organizer.twitter %}<a href="//twitter.com/{{organizer.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>{% endif %}
+            {% if organizer.email %}<a mailto:="{{organizer.email}}" target="_blank" class="email"><i class="fa fa-envelope-o"></i></a>{% endif %}
+          </div>
+        </column>
+        {% endfor %}
+      {% endfor %}
+      </div> </span>
+    </div>
+  </section>
+  {% endif %}
+  {% if page.logos %}
+  <link rel="stylesheet" type="text/css" href="/css/components/press.css"/>
+  <section  id="social" class="dark logo-grid">
+    {% if page.logos.title %}<h3>{{ page.logos.title }}</h3>{% endif %}
+    <div class="logos row text-center">
+      {% for logo in page.logos.include %}
+        {% assign links = site.logos | where: "title" , logo %}
+        {% for link in links %}
+        <a href="{{ link.url }}" target="_blank">
+          <img alt="{{ link.title }}" src="{{ link.img_path }}">
+        </a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% if page.location %}
+    <script type="text/javascript" src="/js/map.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/components/map.css"/>
+    <div id="map" data-coords="{{page.location.latlng}}">
+      <a href="#map"></a>
+      <div class="company-location">
+        <h4>Hello {{page.location.company}}</h4>
+        <p>{{ page.location.city }}, {{ page.location.state }} {{ page.location.country }}</p>
+      </div>
+      <div id="map-canvas"></div>
+    </div>
+  {% else %}
+    {% include map.html %}
+  {% endif %}
+
+<section id="base" class="alt">
+  <div class="container text-center">
+    <h2>{{ page.title }}</h2>
+    <h3>{{ page.subtitle }}</h3>
+    {% if page.cta.btnLink %}
+      <a href="{{page.cta.btnLink}}">
+        <button class="btn {{ page.cta.btnType }}">{{ page.cta.btnText }}</button>
+      </a>
+    {% endif %}
+    {% if page.stripe.productID %}
+      {% for button in buttons %}
+      <span id="checkout" class="hideexpired stripe-button">
+          <button id="{{ button.productID }}" class="checkout-button btn {{ page.stripe.btnType }}">{{ page.stripe.btnText }}</button>
+      </span>
+      {% endfor %}
+    {% endif %}
+      <a href="/speak/">
+        <button class="btn btn-default">Apply to speak at future events.</button>
+      </a>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="post">
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+  {% if page.share %}
+    {% include addthis.html %}
+  {% endif %}
+
+  {% if page.comments %}
+     {% include disqus.html %}
+  {% endif %}
+
+</div>

@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="/css/components/events.css"/>
+
+<div id="events" class="events">
+  <ul class="post-list event-list">
+    <span class="row">
+    {% assign events = site.events | where: "past" , false %}
+    {% for event in events %}
+    {% capture thecycle %}{% cycle 'eventCurrent' : '1', '2' %}{% endcapture %}
+    {% if thecycle == '1' and forloop.first == false %}</span>
+    <span class="row">{% endif %}
+      <li class="col-md-6 clearfix">
+        <div class="date">
+          <a href="{{ event.url | prepend: site.baseurl }}">
+          <span class="binds"></span>
+          <span class="month">
+              {{ event.date_on | date: "%b" }}
+          </span>
+          <span class="day">{{ event.date_on | date: "%-d" }}</span>
+          </a>
+        </div>
+          <h2>
+          <a class="post-link" href="{{ event.url | prepend: site.baseurl }}">{{ event.title }}</a>
+        </h2>
+        <p>{{ event.excerpt }}</p>
+      </li>
+    {% endfor %}
+    </span>
+  </ul>
+</div>

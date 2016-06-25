@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% include flash.html %}
+    {% include header.html %}
+    <div id="content">
+      <div class="container-fluid wrapper">
+        {{ content }}
+      </div>
+    </div>
+    {% include footer.html %}
+    {% include tracking.html %}
+  </body>
+
+</html>

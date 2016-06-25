@@ -1,0 +1,420 @@
+/*******************************************************/
+
+/* Add/remove custom styles to this theme file */
+
+/*******************************************************/
+
+/***** your custom styles ****/
+
+.nav > li.Speak {
+  background: #d01031;
+  a {color:#f7f7f7 !important;}
+  a:hover {background-color: #94000E;}
+}
+
+#content {
+  #testimonial-carousel img, #slider img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  section:first-of-type {
+    padding-top: 100px;
+  }
+  .section-header {
+  margin-bottom: 30px;
+  }
+
+  .section-content p {font-size: 17px;}
+  h2 {font-weight:bold;}
+  h3 {text-transform:none;font-weight:normal;margin-bottom:30px;}
+}
+
+
+.site-header {min-height:0;}
+
+#nav.navbar, #nav.navbarfixed {
+  border-bottom:none;
+  box-shadow:none;
+}
+
+#press h2 {font-size:1em;text-transform:uppercase;}
+
+#contact {
+  .social-media a {
+    margin: 0 2px;
+    i {font-size:24px;}
+  }
+  .social-media a:hover i {
+    color:#ddd;
+  }
+  [class*="col"] {margin-bottom:30px;}
+}
+
+section.alt {
+  a, a:visited {color:#74C8E9 !important;}
+}
+
+#content section.text-center {
+  h1, h2, h3, p, {text-align: center;}
+}
+
+
+
+
+
+/***** fonts (use @import... to add custom webfonts) ****/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Open+Sans:400,300,600);
+
+$primary-font: Open Sans; /** body, p **/
+$primary-font-weight: 300;
+$primary-font-color: null;
+
+$heading-font: 'Roboto Slab'; /** h1, h2, h3, h4, h5 **/
+$heading-font-weight: 600;
+$heading-font-color: #454545;
+
+$subheading-font: 'Open Sans'; /** h3, h4, h5 **/
+$subheading-font-weight: 400;
+$subheading-font-color: #333;
+
+$link-color: #1f24cc;
+$link-weight: null;
+$link-hover-color: #0976b4;
+$link-hover-weight: null;
+
+$nav: #fff;
+$nav-hover: #d01031;
+$nav-font-color: #333;
+$nav-hover-font-color: #fff;
+
+$footer: #222;
+$footer-font-color: #fff;
+$footer-link-color: #fff;
+$footer-link-hover-color: null;
+$subfooter-font-color: #fff;
+$subfooter-link-color: null;
+$footer-icon-color: null;
+$footer-border: none;
+
+
+/***** section settings and colors ****/
+
+$section-padding: null;
+$content-container-bg: null;
+
+$section-font-color: null;
+$section-heading-font-color: null;
+$section-subheading-font-color: null;
+$section-link-color: null;
+$section-link-hover-color: null;
+$section-bg: #F2F2F0;
+
+$section-bgclear-font-color: #fff;
+$section-bgclear-heading-font-color: null;
+$section-bgclear-subheading-font-color: null;
+$section-bgclear-link-color: null;
+$section-bgclear-link-hover-color: null;
+
+$section-alt-font-color: #fff;
+$section-alt-subheading-font-color: null;
+$section-alt-heading-font-color: null;
+$section-alt-link-color: null;
+$section-alt-link-hover-color: null;
+$section-alt-bg: #B30000;
+
+
+$section-dark-font-color: #fff;
+$section-dark-heading-font-color: #eee;
+$section-dark-subheading-font-color: null;
+$section-dark-link-color: null;
+$section-dark-link-hover-color: null;
+$section-dark-bg: #333335;
+
+/***** buttons ****/
+
+$btn-font-color: #fff;
+$radius: null;
+$default: #d01031;
+$default-hover: #94000E;
+$default-font-color: null;
+$info: #444;
+$info-hover: #666;
+$info-font-color: null;
+$success: #4ab152;
+$success-hover: #50a263;
+$success-font-color: #fff;
+$warning: null;
+$warning-hover: null;
+$warning-font-color: null;
+
+/***** form styles ****/
+
+$form-headline-color: null;
+$form-background-color: null;
+$form-border: null;
+$form-box-shadow: null;
+
+$mediatint-color: #65c4dc;
+$bgoverlayDark: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+$bgoverlayLight: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9));
+
+/***** theme variables below this line ****/
+
+a {
+  font-weight: $link-weight !important;
+  color: $link-color !important;
+}
+
+a:hover, a:focus {
+  font-weight: $link-hover-weight !important;
+  color: $link-hover-color !important;
+}
+
+h1,h2,h3,h4,h5 {
+  font-weight: $heading-font-weight;
+  font-family: $heading-font, "Helvetica", sans-serif !important;
+  color: $heading-font-color !important;
+}
+
+h3, h4 {
+  align-content: center;
+  text-transform: none;
+  font-family: $subheading-font !important;
+  color: $subheading-font-color !important;
+}
+
+body, p {
+font-family: $primary-font, "Helvetica", sans-serif !important;
+font-weight:$primary-font-weight !important;
+color:$primary-font-color !important;
+}
+
+/// new section overrides
+
+section {
+  background-color: $section-bg;
+  padding: $section-padding !important;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-font-color !important;}
+  h1, h2 { color:$section-heading-font-color !important;}
+  h3, h4, h5 { color:$section-subheading-font-color !important;}
+}
+section.alt {
+  background-color: $section-alt-bg;
+  body, p, li, ul, h1, h2, h3, h4, h5, strong { color:$section-alt-font-color !important;}
+  h1, h2 { color:$section-alt-heading-font-color !important;}
+  h3, h4, h5 { color:$section-alt-subheading-font-color !important;}
+}
+
+section.dark {
+  background-color: $section-dark-bg;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-dark-font-color !important;}
+  h1, h2 { color:$section-dark-heading-font-color !important;}
+  h3, h4, h5 { color:$section-dark-subheading-font-color !important;}
+}
+
+section.bgclear {
+  background-color: transparent !important;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-bgclear-font-color !important;}
+  h1, h2 { color:$section-bgclear-heading-font-color !important;}
+  h3, h4, h5 { color:$section-bgclear-subheading-font-color !important;}
+}
+
+.bgclear {background-color: transparent !important;}
+
+
+#footer {
+  background-color:$footer;
+  color:$footer-font-color;
+  border-top: $footer-border !important;
+  margin-top:-1px;
+  a, a:visited, a:hover, a:active {
+    color:$footer-link-color !important;
+    }
+  a:hover, a:active {
+    color:$footer-link-hover-color !important;
+    }
+  i {
+    color:$footer-icon-color;}
+}
+
+.subfooter {
+  color:$subfooter-font-color !important;
+  a, a:visited, a:hover, a:active {
+    color:$subfooter-link-color !important;
+    }
+  }
+
+#nav.navbar {
+  background-color:$nav;
+}
+
+.nav > li > a, .nav > li, .navbar-toggle.btn-transparent {
+color:$nav-font-color !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus, .navbar-toggle.btn-transparent:hover, .navbar-toggle.btn-transparent:focus {
+background-color:$nav-hover;
+color:$nav-hover-font-color !important;
+}
+
+
+.btn, .btn-sm, .btn-lg, .btn-xs {
+  border-radius:$radius !important;
+}
+
+.btn, a .btn, .btn:hover, .btn:active, .btn:focus {
+color: $btn-font-color !important;
+}
+
+.btn-default, a .btn-default {
+  color:$default-font-color !important;
+  background-color:$default;
+  border-color:$default;
+}
+
+.btn-default:hover,.btn-default:active,.btn-default:focus,  {
+  background-color:$default-hover;
+  border-color:$default-hover;
+}
+
+.btn-info, a .btn-info {
+  color:$info-font-color !important;
+  background-color:$info;
+  border-color:$info;
+}
+
+.btn-info:hover,.btn-info:active,.btn-info:focus  {
+  background-color:$info-hover;
+  border-color:$info-hover;
+}
+
+.btn-warning, a .btn-warning {
+  color:$warning-font-color !important;
+  background-color:$warning;
+  border: 2px solid $warning-hover;
+}
+
+.btn-warning:hover,.btn-warning:active,.btn-warning:focus  {
+  color:$warning-font-color !important;
+  background-color:$warning-hover;
+  border-color:$warning-hover;
+}
+
+.btn-success, a .btn-success {
+  color:$success-font-color !important;
+  background-color:$success;
+  border-color:$success;
+}
+
+.btn-success:hover,.btn-success:active,.btn-success:focus,.btn-success:visited  {
+  background-color:$success-hover;
+  border-color:$success-hover;
+}
+
+
+#content{
+  #hero {
+  .action.form {
+    h2 {
+      color: $form-headline-color !important;
+      }
+    .email-form {
+      background: $form-background-color !important;
+      border: $form-border;
+      box-shadow: $form-box-shadow  !important;
+      }
+    }
+  }
+}
+
+
+
+.media-wrap {
+  .media-tint, .video-placeholder {
+    background: $mediatint-color;
+    }
+  .media.bgoverlayLight:after, .slider-bgimg.bgoverlayLight:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: $bgoverlayLight;
+    }
+    .media.bgoverlayDark:after, .slider-bgimg.bgoverlayDark:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: $bgoverlayDark;
+    }
+  }
+
+.slider-bgimg.bgoverlayLight:after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $bgoverlayLight;
+  }
+  .slider-bgimg.bgoverlayDark:after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $bgoverlayDark;
+  }
+
+  .content-container {
+    section:nth-child(1) {
+      padding: $section-padding;
+      section:first-of-type {
+        margin: $section-padding;
+      }
+      section:nth-child(2) {
+        margin-top:-60px;
+        margin-bottom: 60px;
+      }
+    }
+    section > section:last-of-type {
+      margin-bottom:-60px;
+    }
+  }
+
+#details .event {
+  margin: -120px 2% 0;
+  padding: 15px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background: $section-bg;
+  #cta {
+    margin-bottom: 30px; font-size: 1.1em;
+    [class*="col"] {margin-bottom: 15px;}
+    span, button {margin: 2px 6px;}
+    h4 {margin-top: 8px;}
+  }
+}
+
+#landing #content #details {
+  p {text-align: left;}
+  h2, h3 { margin: .5em auto;}
+}
+
+.stripe-button {
+  margin:0 auto;
+  text-align:center;
+  small {float: none;}
+}

@@ -1,0 +1,29 @@
+<h1 class="headline">{{page.element.headline}}</h1>
+<h2 class="copy">{{page.element.subheadline}}</h2>
+<h3 class="copy">{{page.element.copy}}</h3>
+{% if page.element.pitch.point1 %}
+<div class="points">
+  {% if page.element.pitch.point1 %}
+  <p>{{page.element.pitch.point1}}</p>
+  {% endif %}
+  {% if page.element.pitch.point2 %}
+  <p>{{page.element.pitch.point2}}</p>
+  {% endif %}
+  {% if page.element.pitch.point3 %}
+  <p>{{page.element.pitch.point3}}</p>
+  {% endif %}
+  {% if page.element.pitch.point4 %}
+  <p>{{page.element.pitch.point4}}</p>
+  {% endif %}
+  {% if page.element.pitch.point5 %}
+  <p>{{page.element.pitch.point5}}</p>
+  {% endif %}
+</div>
+{% endif %}
+<p class="subtext">{{page.element.subtext}}</p>
+
+{% if page.element.font_color %}
+<style >
+.element.pitch h1,.element.pitch h2,.element.pitch h3, .element.pitch h4, .element.pitch h5, .element.pitch i, p, label, .element.pitch .points p  {color:{{ page.element.font_color }} !important;}
+</style>
+{% endif %}

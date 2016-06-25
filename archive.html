@@ -1,0 +1,18 @@
+---
+layout: "blog-index"
+permalink: "/archive/"
+exclude_from_nav: true
+title:  "Categories"
+subtitle: "Explore posts from the archive."
+masthead:
+  img_path: /img/backgrounds/event-meeting.jpg
+  pat_path: false
+style:
+  stickyfooter: true
+comments:
+share:
+---
+
+{% include categories.html %}
+
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>

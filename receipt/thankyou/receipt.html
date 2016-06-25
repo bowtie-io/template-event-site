@@ -1,0 +1,54 @@
+---
+layout: page
+permalink: /thankyou/receipt/
+title: Receipt
+subtitle:
+exclude_from_nav: false
+masthead-img: false
+masthead-img-pat: false
+author:
+date:   2015-01-01 12:00:01
+comments:
+share:
+exclude_from_nav: true
+---
+
+{% include section.html location="receiptpage" %}
+
+
+<p>Thanks for purchasing <span class="purchase_title"></span>. Your receipt is below:</p>
+
+<div id="product">
+  <h4>Purchase Details:</h4>
+  <p><strong class="purchase_title"></strong></p>
+  <p class="purchase_description" name="profile[description]"></p>
+  <p>Your Price:
+    <span class="dollar">$</span><span class="purchase_amount" name="profile[amount]"></span></span>
+</div>
+
+<div id="purchase_details">
+  <h4>Purchase Details</h4>
+  <p class="purchase_ReceiptMessage"></p>
+  <small class="purchase_fineprint small"></small>
+</div>
+
+<br />
+
+
+
+<script type="text/javascript">
+$(window).bind("load", function(){
+  bowtie.user.profile(function(profile){
+    $(".purchase_title").text(profile.purchaseTitle);
+    $(".purchase_amount").text(profile.purchaseAmount);
+    $(".purchase_description").text(profile.purchaseDescription);
+    $(".purchase_ReceiptMessage").text(profile.purchaseReceiptMessage);
+    $(".purchase_fineprint").text(profile.purchaseFineprint);
+  });
+});
+window.onload = function updateProfile(){
+  bowtie.user.profile({
+  saleCompleted: true
+  });
+}
+</script>

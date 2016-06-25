@@ -1,0 +1,87 @@
+# Site settings
+title: Event Site - a Jekyll template by BowTie.io
+description: >
+  Build a simple Event site without writing code. The BowTie collection editor makes it easy to build sites, blogs, or static apps that you can hand off to clients.
+email: info@example.com
+
+logourl: /img/logo.png # Your logo or avatar
+
+author: Your Name
+
+author_thumbnail: /img/user1.png # default author avatar
+
+# Theme additions - please update the default values if you intend to use these variables
+
+google_analytics_id:  # Your google analytics ID (e.g. 'UA-XXXXXXXX-X')
+
+theme:
+  # Company contact info
+  contact:
+    company:  Company Name
+    address:  2420 17th St
+    city:     Denver
+    state:    CO
+    zip:      80202
+    country:  USA
+    phone:    555-123-4567
+    latlng:   '39.7584972,-105.0077574,20.25z' # (e.g. '39.733536,-104.992611')
+    twitter:  twitter               # (e.g. 'twitter')
+    facebook: facebook              # (e.g. 'facebook')
+    github:                         # (e.g. 'github')
+    instagram:                      # (e.g. 'instagram')
+    flickr:                         # (e.g. 'groups/2772799@N24/')
+    linkedin:                       # (e.g. 'company/linkedin')
+    youtube:                        # (e.g. 'channel/UCovWO5keLOLcLu8WdO-ABJw')
+
+
+  disqus_id:   bowtieexample        # From your Disqus account (e.g. 'bowtieexample')
+
+  addthis_id:                       # From your Add This account (e.g. 'ra-00000a0a00a00aaa')
+
+# Permalinks
+permalink:           /:categories/:title/
+relative_permalinks: false
+
+gems: [jekyll-paginate]
+
+# Pagination config
+paginate: 5
+paginate_path: /page/:num
+
+# Jekyll build/resource locations
+
+# source:  .
+# destination: ./_site
+# plugins_dir: null
+# layouts_dir: ./_layouts
+# data_dir:    ./_data
+# includes_dir: ./_includes
+
+# Jekyll Handling Reading
+include:    [] # Specify files to be included in build that may be otherwise ignored (e.g. '[.htaccess]')
+
+keep_files: [] # Files/Folders located inside the ./_site folder to be retained on build (e.g.'[.git, .svn]')
+
+# Files/Folders to be excluded from generated '_site' folder
+exclude:
+  - .gitignore
+  - .sass-cache
+
+# define collection objects
+collections:
+  events:
+    output: true
+  authors:
+    output: false
+  products:
+    output: false
+  speakers:
+    output: false
+  organizers:
+    output: false
+  sections:
+    output: false
+  sponsors:
+    output: false
+  logos:
+    output: false

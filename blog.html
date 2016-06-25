@@ -1,0 +1,47 @@
+---
+layout: "blog-index"
+permalink: "/blog/"
+title:  "Blog"
+navorder: '4'
+subtitle: "This is your blog index page."
+masthead:
+  img_path: /img/backgrounds/event-meeting.jpg
+  pat_path:
+comments:
+share:
+style:
+  stickyfooter: false
+---
+
+
+{% include section.html  location="blogs" %}
+
+<section>
+  <div class="container">
+    <div class="blog">
+
+      <ul class="post-list">
+        {% for post in site.posts %}
+          {% if post.author %}
+            {% assign author = site.authors | where:"name", post.author | first %}
+          {% endif %}
+          <li>
+            <h2>
+              <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+            <p class="post-meta small">{{ post.date | date: "%b %-d, %Y" }}</p>
+            {{ post.excerpt }}
+            {% include post-meta.html %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    </div>
+  <hr>
+  <ol class="breadcrumb">
+    <li><a href="/">Main</a></li>
+    <li>Blog</li>
+  </ol>
+  </div>
+</section>

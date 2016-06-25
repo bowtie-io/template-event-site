@@ -1,0 +1,28 @@
+<h1 class="headline">{{page.action.heading}}</h1>
+<h2 class="subheadline">{{page.action.subhead}}</h2>
+<p class="subtext">{{page.action.subtext}}</p>
+<div class="icons">
+  {% if page.action.cta.icon1_type %}
+    <a href="{{ page.action.cta.icon1_url }}"><i class="fa {{ page.action.cta.icon1_type }}"></i></a>
+  {% endif %}
+  {% if page.action.cta.icon2_type %}
+    <a href="{{ page.action.cta.icon2_url }}"><i class="fa {{ page.action.cta.icon2_type }}"></i></a>
+  {% endif %}
+  {% if page.action.cta.icon3_type %}
+    <a href="{{ page.action.cta.icon3_url }}"><i class="fa {{ page.action.cta.icon3_type }}"></i></a>
+  {% endif %}
+  {% if page.action.cta.icon4_type %}
+    <a href="{{ page.action.cta.icon4_url }}"><i class="fa {{ page.action.cta.icon4_type }}"></i></a>
+  {% endif %}
+  {% if page.action.cta.btnLink %}
+  <button class="btn {% if page.action.cta.btnText %}btn-{{page.action.cta.btnType}}{% else %}btn-success{% endif %}">
+    <a href="{{page.action.cta.btnLink}}">{{page.action.cta.btnText}}</a>
+  </button>
+  {% endif %}
+</div>
+
+{% if page.action.font_color %}
+<style >
+.action.cta h1,.action.cta h2,.action.cta h3, .action.cta h4, .action.cta h5, .action.cta i, .action.cta p {color:{{page.action.font_color}} !important;}
+</style>
+{% endif %}

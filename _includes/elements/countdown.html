@@ -1,0 +1,20 @@
+<script type="text/javascript" src="/js/countdown.js"></script>
+<script type="text/javascript" src="/vendor/jquery.countdown/dist/jquery.countdown.min.js"></script>
+
+<h1 class="headline">{{page.element.headline}}</h1>
+<div class="count-down pull-center" id="count-down" data-countdown="{{ page.element.countdown.date }}" data-countdown-hide-oncomplete="true">
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="days"></span> Days</span> </span>
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="hours"></span> Hours</span> </span>
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="minutes"></span> Mins</span> </span>
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="seconds"></span> Secs</span></span>
+  <div class="count-down-complete">
+    <h2>{{page.element.countdown.complete}}</h2>
+  </div>
+</div>
+<p class="copy">{{page.element.copy}}</p>
+
+{% if page.element.font_color %}
+<style >
+.element.countdown h1,.element.countdown h2,.element.countdown h3, .element.countdown h4, .element.countdown h5, .element.countdown i, .element.countdown p {color:{{page.element.font_color}} !important;}
+</style>
+{% endif %}

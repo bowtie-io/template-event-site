@@ -1,0 +1,62 @@
+<div id="card" class="well" {% if page.element.card.well_color %}style="background: {{page.element.card.well_color}};border-color: {{page.element.card.well_color}};"{% endif %}>
+  {% if page.element.card.avatar_path %}
+  <img class="logo img" alt="{{page.element.card.element.headline}}" src="{% if page.element.card.avatar_path %}{{ page.element.card.avatar_path }}{% else %}https://www.gravatar.com/avatar/{{ page.element.card.gravatar }}?s=64{% endif %}"></img>
+  {% elsif page.element.card.gravatar %}
+  {% endif %}
+
+{% if page.element.headline %}
+<h1 class="headline">{{page.element.headline}}</h1>
+{% endif %}
+
+{% if page.element.subheadline %}
+<h2 class="copy">{{page.element.subheadline}}</h2>
+{% endif %}
+
+{% if page.element.copy %}
+<h3 class="copy">{{page.element.copy}}</h3>
+{% endif %}
+
+<div class="social">
+{% if page.element.card.email %}
+  <span class="author-email"><a href="mailto:{{ page.element.card.email }}" target="_blank"><i class="fa fa-envelope-o fa-2x"></i></a></span>
+  {% endif %}
+
+{% if page.element.card.twitter %}
+  <span class="author-twitter"><a href="//twitter.com/{{ page.element.card.twitter }}"><i class="fa fa-twitter fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.facebook %}
+  <span class="author-facebook"><a href="//facebook.com/{{ page.element.card.facebook }}"><i class="fa fa-facebook fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.github %}
+  <span class="author-github"><a href="//github.com/{{ page.element.card.github }}"><i class="fa fa-github fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.instagram %}
+  <span class="author-instagram"><a href="//instagram.com/{{ page.element.card.instagram }}"><i class="fa fa-instagram fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.youtube %}
+  <span class="author-youtube"><a href="//youtube.com/{{ page.element.card.youtube }}"><i class="fa fa-youtube fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.flickr %}
+  <span class="author-flickr"><a href="//flickr.com/{{ page.element.card.facebook }}"><i class="fa fa-flickr fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.linkedin %}
+  <span class="author-linkedin"><a href="//linkedin.com/{{ page.element.card.facebook }}"><i class="fa fa-linkedin fa-2x"></i></a></span>
+{% endif %}
+
+{% if page.element.card.dribbble %}
+  <span class="author-dribbble"><a href="//dribbble.com/{{ page.element.card.dribbble }}"><i class="fa fa-dribbble fa-2x"></i></a></span>
+{% endif %}
+</div>
+</div>
+
+{% if page.element.font_color %}
+<style >
+.element.card h1,.element.card h2,.element.card h3, .element.card h4, h5, .element.card i, p, label {color:{{page.element.font_color}} !important;}
+</style>
+{% endif %}
